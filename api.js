@@ -10,9 +10,9 @@ function getData(){
         data: JSON.stringify(),
         accept: "*/*",
         success: function( data, textStatus, jQxhr ){
-          for (let i = 0; i < data.length; i++) {
+          for (let i = 0; i < data.length; i++) { // for that get in output all employees
               
-            $( ".table-header" ).append( "" );
+            $( ".table-header" ).append( "<tr><td>" + data.result["firstName"] + "</td><td>"+ data.result["lastName"] + "</td><td>" + data.result["email"] + "</td><td>"+ data.result["phone"] + "</td><td><button class=\"btn btn-warning\" onclick=\"removeEmployees(this)\">REMOVE</button>");
           }
         },
         error: function( jqXhr, textStatus, errorThrown ){
@@ -20,10 +20,12 @@ function getData(){
         }
     });
 }
-    
-
+  
 
 function addEmployees(){
 
+}
+
+function removeEmployees(button){
 
 }
