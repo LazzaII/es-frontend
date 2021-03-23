@@ -42,10 +42,10 @@ function addEmployees(){
   $("#btn-add").click(function() {
     var employee = {
       "employeeId" : ID + 1,
-      "firstName" : $(".first-name").val(),
-      "lastName" : $(".last-name").val(),
-      "email" : $(".email").val(),
-      "phone" : $(".phone").val(),
+      "firstName" : $("#first-name").val(),
+      "lastName" : $("#last-name").val(),
+      "email" : $("#email").val(),
+      "phone" : $("#phone").val(),
     };
 
     $.ajax({
