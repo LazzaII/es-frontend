@@ -56,23 +56,7 @@ function addEmployees(){
       accept: '*/*',
       success: function(){
         alert("employee insert correctly");
-
-        $.ajax({ // get request to refresh the table
-          url: 'http://localhost:8080/api/tutorial/1.0/employees',
-          type: 'get',
-          contentType: 'application/json',
-          accept: "*/*",
-          success: function(data){
-            $('#table tbody > tr > td').remove();
-            for (let i = 0; i < data.length; i++) { 
-              ID += 1;
-              $('#table').append("<tr><td>" + data[i]["firstName"] + "</td><td>"+ data[i]["lastName"] + "</td><td>" + data[i]["email"] + "</td><td>"+ data[i]["phone"] + "</td><td><button class=\"btn btn-warning btn-delete\" id=\"" + data[i]["employeeId"] + "\">REMOVE</button></tr>");    
-            } 
-          },
-          error: function(errorThrown){
-            console.log( errorThrown );
-          }
-        });
+        location.reload();
       },
       error: function(errorThrown){
         console.log( errorThrown );
@@ -84,8 +68,9 @@ function addEmployees(){
 // function to remove an employees from db
 function removeEmployees(){
   $(".btn-delete").click( function() {   
+    alert("dentro la funzione") //solo per debug
     var id =  $('.btn-delete').attr("id");
-
+    alert("preso l'id " + id);
     $.ajax({
       url: 'http://localhost:8080/api/tutorial/1.0/employees/' + id,
       type: 'delete',
@@ -94,6 +79,7 @@ function removeEmployees(){
       accept: "*/*",
       success: function(){
         console.log( 'employee remove correctly' );
+        location.reload();
       },
       error: function(errorThrown){
         console.log( errorThrown );
