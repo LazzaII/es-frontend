@@ -1,0 +1,22 @@
+<table mat-table>
+    <tr>
+        <td colspan="3"><b>Employees List</b></td>
+        <td colspan="2"><button mat-button color="primary" (click)=showAddParameters()>Add New Employees</button></td>
+    </tr>
+    <tr>
+        <td mat-header-cell>Id</td>
+        <td mat-header-cell>First Name</td>
+        <td mat-header-cell>Last Name</td>
+        <td mat-header-cell>Email</td>
+        <td mat-header-cell colspan="2">Phone</td>
+    </tr>
+    <tr *ngFor="let item of data">
+        <td>{{ item.employeeId }}</td>
+        <td mat-cell>{{ item.firstName }}</td>
+        <td mat-cell>{{ item.lastName }}</td>
+        <td mat-cell>{{ item.email }}</td>
+        <td mat-cell>{{ item.phone }}</td>  
+        <td mat-cell><button mat-button >Alter</button></td>
+        <td mat-cell><button mat-button color="warn">Remove</button></td>
+    </tr>
+</table>
