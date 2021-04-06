@@ -24,4 +24,8 @@ export class TableStructureComponent {
     )
   }
 
+  deleteEmployee(id : number){
+    this.api.deleteEmployee('http://localhost:4200/api/tutorial/1.0/employees' + id)
+  }
+
 }

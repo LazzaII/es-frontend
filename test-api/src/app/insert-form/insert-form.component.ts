@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ApiRestService } from '../api-rest.service';
 import { Employee } from "../shared/employee";
 
+
+
 @Component({
   selector: 'app-insert-form',
   templateUrl: './insert-form.component.html',
@@ -19,7 +21,14 @@ export class InsertFormComponent {
   }
 
   addEmployee(firstName : string, lastName : string, email : string, phone : string) {
+    let employee : Employee = {
+      "employeeId" : 0,
+      "firstName" : firstName,
+      "lastName" : lastName,
+      "email" : email,
+      "phone" : phone
+    };
 
-    /* this.api.addEmployee('http://localhost:4200/api/tutorial/1.0/employees', employee) */
+    this.api.addEmployee('http://localhost:4200/api/tutorial/1.0/employees', employee)
   }
 }
