@@ -1,0 +1,9 @@
+<button (click) = "showHideForm()">Add Employee</button><br><br>
+<form *ngIf="visible">
+    <input type="text" placeholder="First Name" required #firstName><br>
+    <input type="text" placeholder="Last Name" required #lastName><br>
+    <input type="text" placeholder="Email" required #email><br>
+    <input type="text" placeholder="Phone" required #phone><br><br>
+    <button (click) = "addEmployee(firstName.value, lastName.value, email.value, phone.value)">Insert</button>
+</form>
+
