@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ApiRestService } from "./api-rest.service";
 import { TableStructureComponent } from './table-structure/table-structure.component';
 import { InsertFormComponent } from './insert-form/insert-form.component';
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { InsertFormComponent } from './insert-form/insert-form.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     ApiRestService
