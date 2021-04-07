@@ -1,9 +1,25 @@
-<button (click) = "showHideForm()">Add Employee</button><br><br>
-<form *ngIf="visible">
-    <input type="text" placeholder="First Name" required [(ngModel)]="employee.firstName" [ngModelOptions]="{standalone: true}"><br>
-    <input type="text" placeholder="Last Name" required [(ngModel)]="employee.lastName" [ngModelOptions]="{standalone: true}"><br>
-    <input type="text" placeholder="Email" required [(ngModel)]="employee.email" [ngModelOptions]="{standalone: true}"><br>
-    <input type="text" placeholder="Phone" required [(ngModel)]="employee.phone" [ngModelOptions]="{standalone: true}"><br><br>
-    <button (click)="addEmployee()">Add</button>
-</form>
+<div class="w-25 ms-3">
+        <button class="btn btn-primary" (click) = "showHideForm()">Add Employee</button><br><br>
+        <form *ngIf="visible">
+
+            <div class="form-floating mb-3">
+                <input class="form-control" type="text" placeholder="First Name" required [(ngModel)]="employee.firstName" [ngModelOptions]="{standalone: true}"><br>
+                <label for="floatingInput">First Name</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" type="text" placeholder="Last Name" required [(ngModel)]="employee.lastName" [ngModelOptions]="{standalone: true}"><br>
+                <label for="floatingInput">Last Name</label>
+            </div>
+            <div class="form-floating mb-3 input-group">
+                <div class="input-group-text">@</div>
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label class="ms-5" for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" type="text" placeholder="Phone" required [(ngModel)]="employee.phone" [ngModelOptions]="{standalone: true}"><br><br>
+                <label for="floatingInput">Phone</label>
+            </div> 
+            <button class="btn btn-primary" (click)="addEmployee()">Add</button>
+        </form>
+</div>
 

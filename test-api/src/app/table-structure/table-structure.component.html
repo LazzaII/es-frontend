@@ -1,3 +1,4 @@
+<div class="w-50 ms-3 mt-3">
 <h2>Employees list</h2>
 <table>
     <tr>
@@ -14,8 +15,11 @@
         <td>{{ item.lastName }}</td>
         <td>{{ item.email }}</td>
         <td>{{ item.phone }}</td>
-        <td><button id='{{ item.employeeId }}' (click)='deleteEmployee($event)'>Remove</button></td> 
-        <td><button (click)="updateEmployee()">Update</button></td>
+        <td><button class="btn btn-danger" id='{{ item.employeeId }}' (click)='deleteEmployee($event)'>Remove</button></td> 
+        <td><button class="btn btn-success" (click)="updateEmployee()">Update data</button></td>
     </tr>
 </table>
 <br>
+</div>
+
+
