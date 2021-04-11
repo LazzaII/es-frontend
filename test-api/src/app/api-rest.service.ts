@@ -31,7 +31,7 @@ export class ApiRestService {
     return this.http.post<Employee>(apiURL, JSON.stringify(employee), this.httpOptions).pipe()
   }
 
-  // patch
+  // put
   updateEmployee(apiURL : string, employee : Employee) {
     return this.http.put(apiURL, JSON.stringify(employee), this.httpOptions).pipe()
   }

@@ -32,14 +32,18 @@ export class InsertFormComponent {
   }
 
   addEmployee() : void {
-
     this.api.getEmployees("http://localhost:4200/api/tutorial/1.0/employees").subscribe(
         data => {
-            this.data = data;          
-            this.employee.employeeId = this.data.length+1;
+            this.data = data;      
+
+            try {
+              this.employee.employeeId =  this.data[this.data.length-1].employeeId + 1;
+            }
+            catch {
+              this.employee.employeeId = 0;
+            }
 
             this.api.addEmployee("http://localhost:4200/api/tutorial/1.0/employees", this.employee).subscribe();
-
             location.reload(); 
         },
         error => console.log(error)

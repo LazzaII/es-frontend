@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiRestService } from '../api-rest.service';
+import { Employee } from '../shared/employee';
 
 @Component({
   selector: 'app-table-structure',
@@ -11,9 +12,18 @@ export class TableStructureComponent {
   data : any;
   error : any;
   form : any;
+  visible : boolean = false;
+  employee : Employee;
 
   constructor( private api : ApiRestService) {
     this.loadData();
+    this.employee = {
+      employeeId: 0, 
+      firstName: "", 
+      lastName: "", 
+      email: "", 
+      phone: ""
+    };
   }
   
   loadData() : void {
@@ -29,8 +39,15 @@ export class TableStructureComponent {
     this.loadData()
   }
 
+  showUpdate(event : any){
+    this.employee.employeeId = event.target.id;
+    if(this.visible) this.visible = false;
+    else this.visible = true;
+  }
+
   updateEmployee(){
-    
+    this.api.updateEmployee('http://localhost:4200/api/tutorial/1.0/employees/' + this.employee.employeeId , this.employee).subscribe()
+    location.reload()
   }
 
 }
